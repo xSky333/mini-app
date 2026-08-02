@@ -1,0 +1,13 @@
+# Hasła i zmienne środowiskowe
+.env
+
+# Kopie zapasowe i pliki tymczasowe
+*.sql
+*.log
+*.bak
+backups/
+
+# Pliki edytorów i systemu
+.vscode/
+.idea/
+.DS_Store
