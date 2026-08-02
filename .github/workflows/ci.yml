@@ -1,0 +1,26 @@
+name: Mini App CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobranie kodu repozytorium
+        uses: actions/checkout@v6
+
+      - name: Utworzenie pliku .env
+        run: cp .env.example .env
+
+      - name: Sprawdzenie konfiguracji Docker Compose
+        run: docker compose config --quiet
+
+      - name: Zbudowanie obrazu aplikacji PHP
+        run: docker compose build app
